@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-	before_action :set_post, only: [:show]
+	before_action :set_post, only: [:show, :edit, :update, :destroy]
 	
 	def index
 	end
@@ -23,6 +23,24 @@ class PostsController < ApplicationController
     end
 	end
 
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      flash[:notice] = "文章修改成功"
+      redirect_to posts_path
+    else
+      flash[:alert] = "此文章修改失敗，請檢查"
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @post.destroy
+    flash[:notice] = "文章被刪除了"
+    redirect_to posts_path
+  end
 
 	private
 
