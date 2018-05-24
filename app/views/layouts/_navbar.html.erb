@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <span class="text-warning">Shela</span>blog
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to 'Blog', root_path, class: "muted nav-link #{yield(:blog_active)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'About', about_path, class: "muted nav-link #{yield(:about_active)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Contact', contact_path, class: "muted nav-link #{yield(:contact_active)}" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
