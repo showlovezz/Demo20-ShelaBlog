@@ -1,7 +1,11 @@
 class Post < ApplicationRecord
 
-	extend FriendlyId
+	# FriendlyId Gem 的必備程式碼
+  extend FriendlyId
   friendly_id :title, use: :slugged
+
+  # 首頁 Post，按照 新 -> 舊
+  scope :most_recent, -> { order(id: :desc) }
 
 	def should_generate_new_friendly_id?
 		title_changed?
