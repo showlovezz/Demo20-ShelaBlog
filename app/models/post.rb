@@ -7,6 +7,9 @@ class Post < ApplicationRecord
   # 首頁 Post，按照 新 -> 舊
   scope :most_recent, -> { order(id: :desc) }
 
+  # 上傳照片
+  mount_uploader :image, PhotoUploader
+
 	def should_generate_new_friendly_id?
 		title_changed?
 	end

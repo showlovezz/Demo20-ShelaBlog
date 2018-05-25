@@ -1,8 +1,9 @@
 <% @posts.each do |post| %>
   <div class="col-sm-6 col-lg-4">
-    <div class="card-deck">
-      <div class="card style="height: 400px;">
-        <img class="card-img-top" src="https://source.unsplash.com/1600x900/?beaches" alt="Card image cap">
+
+    <div class="card-deck" >
+      <div class="card"  style="height: 450px;">
+        <%= image_tag post.image, class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= post.title %></h5>
           <p class="card-text"><%= truncate(post.description, length: 150) %></p>
@@ -13,5 +14,6 @@
         </div>
       </div>
     </div>
+
   </div>
 <% end %>
